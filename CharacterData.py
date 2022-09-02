@@ -7,6 +7,16 @@ from enum import Enum
 class ResponseTypes(Enum):
     st_punishes = 1
     ws_punishes = 2
+    pokes = 3
+    wall_splats = 4
+    whiff_punishes = 5
+    throw_crushers = 6
+    mid_crushers = 7
+    low_parries = 8
+    mixups = 9
+    low_counters = 10 # Ie: Counter against lows
+    mid_counters = 11 # Counter against mids
+    high_counters = 12 # Counter against highs
 
 
 
@@ -16,13 +26,14 @@ class Gameplan:
         self.json_data = json_data
 
         #print(json_data["punishes"])
-        self.AddDictIfExists(ResponseTypes.st_punishes)
-        self.AddDictIfExists(ResponseTypes.ws_punishes)
-
+        for responseType in ResponseTypes:
+            self.AddDictIfExists(responseType)
+            
     def AddDictIfExists(self, tag_name:ResponseTypes):
         if tag_name.name in self.json_data:
             moves = {}
             for key in self.json_data[tag_name.name]:
+                print(str(key) + "::" + tag_name.name)
                 moves[int(key)] = ParseMoveList(self.json_data[tag_name.name][key])
             self.move_index[tag_name.name] = moves
 

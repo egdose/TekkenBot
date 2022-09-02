@@ -26,7 +26,7 @@ class BotFrameTrap(Bot):
         BotBehaviors.Basic(gameState, self.botCommands)
 
         if self.botCommands.IsAvailable():
-            BotBehaviors.BlockAllAttacks(gameState, self.botCommands)
+            BotBehaviors.DefendAllAttacks(gameState, self.botCommands)
             if gameState.IsBotBlocking() or gameState.IsBotGettingHit():
                 self.botCommands.AddCommand(self.response)
 

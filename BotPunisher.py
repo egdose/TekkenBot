@@ -34,12 +34,14 @@ class BotPunisher(Bot):
         if self.gameplan != None:
             BotBehaviors.Basic(gameState, self.botCommands)
             if self.botCommands.IsAvailable():
-                BotBehaviors.BlockAllAttacks(gameState, self.botCommands)
+                BotBehaviors.DefendAllAttacks(gameState, self.botCommands)
                 frameAdvantage = None
                 if gameState.IsBotBlocking():
                     frameAdvantage = self.enemyCyclopedia.GetFrameAdvantage(gameState.GetOppMoveId())
                 elif gameState.IsBotGettingHit():
                     frameAdvantage = self.enemyCyclopedia.GetFrameAdvantage(gameState.GetOppMoveId(), isOnBlock=False)
+                else:
+                    BotBehaviors.TechThrows(gameState, self.botCommands)
 
                 try:
                     frameAdvantage = int(frameAdvantage) * -1

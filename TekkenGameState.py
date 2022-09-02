@@ -347,7 +347,13 @@ class BotSnapshot:
         self.move_timer = d['PlayerDataAddress.move_timer']
         self.recovery = d['PlayerDataAddress.recovery']
         self.char_id = d['PlayerDataAddress.char_id']
-        self.throw_flag = d['PlayerDataAddress.throw_flag']
+
+        if self.attack_type == AttackType.THROW:
+            print(str(self.attack_type) + "::"+str(self.char_id))
+
+        # TODO: This current Throw flag address seems to be not working
+        #self.throw_flag = d['PlayerDataAddress.throw_flag']
+
         self.rage_flag = d['PlayerDataAddress.rage_flag']
         self.input_counter = d['PlayerDataAddress.input_counter']
         self.input_direction = InputDirectionCodes(d['PlayerDataAddress.input_direction'])
@@ -455,7 +461,9 @@ class BotSnapshot:
         return self.attack_type == AttackType.ANTIAIR_ONLY
 
     def IsAttackThrow(self):
-        return self.throw_flag == 1
+        # TODO: Add back once throw_flag address is corrected
+        #return self.throw_flag == 1
+        return self.attack_type == AttackType.THROW
 
     def IsAttackLow(self):
         return self.attack_type == AttackType.LOW
@@ -793,6 +801,9 @@ class TekkenGameState:
     def IsOppAttacking(self):
         return self.stateLog[-1].opp.IsAttackStarting()
 
+    def IsOppPowerCrush(self):
+        return self.stateLog[-1].opp.IsPowerCrush()
+
     def GetOppMoveInterruptedFrames(self): #only finds landing canceled moves?
         if len(self.stateLog) > 3:
             if self.stateLog[-1].opp.move_timer == 1:
@@ -961,6 +972,9 @@ class TekkenGameState:
     def IsBotAttackStarting(self):
         return (self.GetBotStartup() - self.GetBotMoveTimer()) > 0
 
+    def IsOppAirborne(self):
+        return self.stateLog[-1].opp.IsAirborne()
+
     def GetOppTimeUntilImpact(self):
         return self.GetOppStartup() - self.stateLog[-1].opp.move_timer + self.stateLog[-1].opp.GetActiveFrames()
 
@@ -1013,6 +1027,10 @@ class TekkenGameState:
             return self.stateLog[-1].bot.IsBeingJuggled() and not self.stateLog[-2].bot.IsBeingJuggled()
         else:
             return False
+
+    def TestBotStuff(self):
+        return self.stateLog[-1].bot.IsInThrowing()
+
 
     def IsBotBeingThrown(self):
         return self.stateLog[-1].opp.IsInThrowing()
@@ -1197,6 +1215,8 @@ class TekkenGameState:
         return (defendingPlayer.recovery + attackingPlayer.startup) - attackingPlayer.recovery
 
     def GetBotCharId(self):
+        # TODO: Has tendency to fetch for wrong player
+        # Need some better way to verify if the char is the player or smth
         char_id = self.stateLog[-1].bot.char_id
         #if -1 < char_id < 50:
         print("Character: " + str(char_id))

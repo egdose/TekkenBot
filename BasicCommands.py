@@ -157,6 +157,17 @@ class BotCommands:
         self.AddCommand(UniversalCommands.BLOCK_MID_FULL)
         self.commandBuffer[1] = (self.commandBuffer[1][0], startup)
 
+    def BlockLowNow(self, startup):
+        """
+        Testing Function
+
+        A more instant access to blocking lows
+        """
+        self.ClearCommands()
+        self.inputController.HoldBack()
+        self.inputController.HoldDown()
+        self.BlockLowFull(startup)
+
     def BlockLowFull(self, startup):
         self.commandBuffer = []
         self.AddCommand(UniversalCommands.BLOCK_LOW_FULL)

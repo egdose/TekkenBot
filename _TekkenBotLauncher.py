@@ -1,6 +1,7 @@
 import math
 import random
 import time
+from BotPassive import BotPassive
 from TekkenEncyclopedia import TekkenEncyclopedia
 from ArtificialKeyboard import ArtificalKeyboard
 
@@ -66,7 +67,7 @@ class TekkenBotLauncher:
                 ArtificalKeyboard.ReleaseKey(GameInputter.Keys_P2.A)
 
 if __name__ == "__main__":
-    launcher = TekkenBotLauncher(BotRecorder, True)
+    launcher = TekkenBotLauncher(BotPassive, True)
     while(True):
         launcher.Update()
         time.sleep(.005)
