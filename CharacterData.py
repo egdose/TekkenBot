@@ -1,5 +1,6 @@
 import json
 import os
+import random
 from NotationParser import ParseMoveList
 
 from enum import Enum
@@ -17,6 +18,7 @@ class ResponseTypes(Enum):
     low_counters = 10 # Ie: Counter against lows
     mid_counters = 11 # Counter against mids
     high_counters = 12 # Counter against highs
+    air_counters = 13 # Counter against mid-air targets
 
 
 
@@ -44,6 +46,15 @@ class Gameplan:
                 punishKey = frames - i
                 if punishKey in moves :
                     return moves[punishKey]
+        return None
+
+    def GetRandomMove(self, tag_name:ResponseTypes):
+        """
+        Pick a random moveset based on the given reponse type
+        """
+        if tag_name.name in self.move_index:
+            moves = self.move_index[tag_name.name]
+            return random.choice(list(moves.values()))
         return None
 
 

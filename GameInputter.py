@@ -114,8 +114,10 @@ class GameControllerInputter:
         isBotOnLeft = self.isOnLeft
         if(self.wasOnLeft != isBotOnLeft):
             if isBotOnLeft:
-               self.SetControlsOnLeft()
+                print("Bot on Left")
+                self.SetControlsOnLeft()
             else:       #bot is on the right
+                print("Bot on Right")
                 self.SetControlsOnRight()
             self.Release()
         self.wasOnLeft = isBotOnLeft
@@ -248,6 +250,7 @@ class GameControllerInputter:
     def Update(self, isTekkenActiveWindow, isOnLeft):
         self.isTekkenActiveWindow = isTekkenActiveWindow
         self.isOnLeft = isOnLeft
+        print("Bot on: " + str(self.isOnLeft))
         self.checkFacing()
 
         if isTekkenActiveWindow and not self.performedInitialKeyRelease:

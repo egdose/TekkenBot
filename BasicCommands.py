@@ -20,6 +20,16 @@ class UniversalCommands:
         [0, 0, 2, 12]
     ))
 
+    BACKDASH_FULL = list(zip(
+        [Command.TapBack, Command.TapBack],
+        [0, 2]
+    ))
+
+    FORWARDDASH= list(zip(
+        [Command.TapForward, Command.TapForward],
+        [0, 2]
+    ))
+
     FORWARDDASH_HALF = list(zip(
         [Command.TapForward, Command.TapForward, Command.TapBack],
         [0, 2, 5]
@@ -36,8 +46,13 @@ class UniversalCommands:
     ))
 
     SIDESTEP_UP = list(zip(
-        [Command.TapUp, Command.TapBack],
-        [0, 16]
+        [Command.TapUp],
+        [0]
+    ))
+
+    SIDESTEP_DOWN = list(zip(
+        [Command.TapDown],
+        [0]
     ))
 
     BLOCK_LONG = list(zip(
@@ -134,8 +149,14 @@ class BotCommands:
     def Backdash(self):
         self.AddCommand(UniversalCommands.BACKDASH)
 
+    def BackdashFull(self):
+        self.AddCommand(UniversalCommands.BACKDASH_FULL)
+
     def ForwarddashSmall(self):
         self.AddCommand(UniversalCommands.FORWARDDASH_HALF)
+
+    def Fowarddash(self):
+        self.AddCommand(UniversalCommands.FORWARDDASH)
 
     def SidestepRight(self):
         self.AddCommand(UniversalCommands.SIDESTEP_RIGHT)
@@ -145,6 +166,9 @@ class BotCommands:
 
     def SidestepUp(self):
         self.AddCommand(UniversalCommands.SIDESTEP_UP)
+
+    def SidestepDown(self):
+        self.AddCommand(UniversalCommands.SIDESTEP_DOWN)
 
     def BlockAndWait(self):
         self.AddCommand(UniversalCommands.BLOCK_LONG)
@@ -181,6 +205,10 @@ class BotCommands:
     def WalkForward(self, startup):
         self.commandBuffer = []
         self.AddCommand([(Command.HoldForward, startup)])
+
+    def WalkBackwards(self, startup):
+        self.commandBuffer = []
+        self.AddCommand([(Command.HoldBack, startup)])
 
     def MashContinue(self):
         self.AddCommand(UniversalCommands.MASH_CONTINUE)

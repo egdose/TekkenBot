@@ -264,6 +264,7 @@ class TekkenGameReader:
 
                     if self.original_facing is None and best_frame_count > 0:
                         self.original_facing = bot_facing > 0
+                        print("OG-Facing::" + str(self.original_facing))
 
                     if self.needReaquireGameState:
                         print("Fight detected. Updating gamestate.")
@@ -407,8 +408,6 @@ class BotSnapshot:
 
         self.use_opponents_movelist = d['use_opponent_movelist']
         self.movelist_parser = d['movelist_parser']
-
-
 
         try:
             self.character_name = CharacterCodes(d['PlayerDataAddress.char_id']).name
@@ -1217,7 +1216,9 @@ class TekkenGameState:
     def GetBotCharId(self):
         # TODO: Has tendency to fetch for wrong player
         # Need some better way to verify if the char is the player or smth
-        char_id = self.stateLog[-1].bot.char_id
+        # char_id = self.stateLog[-1].bot.char_id
+        
+        char_id = 22
         #if -1 < char_id < 50:
         print("Character: " + str(char_id))
         return char_id
