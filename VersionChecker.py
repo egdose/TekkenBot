@@ -2,12 +2,12 @@
 #from multiprocessing import queues #pyinstaller workaround  https://stackoverflow.com/questions/40768570/importerror-no-module-named-queue-while-running-my-app-freezed-with-cx-freeze
 import json
 
-CURRENT_VERSION = 'v0.25.0'
+CURRENT_VERSION = 'v0.26.0'
 
 
 def check_version(force_print=False):
 #    if 'dev' in CURRENT_VERSION:
-    if 'v0.25.0' in CURRENT_VERSION:
+    if 'v0.26.0' in CURRENT_VERSION:
         print("Tekken Bot version check disabled.")
 #        print("DEVELOPER NOTE: Remember to update VersionChecker.CURRENT_VERSION before publishing a release.")
     else:
