@@ -444,11 +444,11 @@
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>1131</ID>
+          <ID>4552</ID>
           <Description>"OPPONENT_SIDE"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TekkenGame-Win64-Shipping.exe"+034D2520</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+034D55A0</Address>
           <Offsets>
             <Offset>78</Offset>
             <Offset>8</Offset>
@@ -456,7 +456,7 @@
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>1129</ID>
+          <ID>4553</ID>
           <Description>"OPPONENT_NAME"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>String</VariableType>
@@ -464,7 +464,7 @@
           <Unicode>0</Unicode>
           <CodePage>0</CodePage>
           <ZeroTerminate>1</ZeroTerminate>
-          <Address>"TekkenGame-Win64-Shipping.exe"+034D2520</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+034D55A0</Address>
           <Offsets>
             <Offset>11c</Offset>
             <Offset>8</Offset>
@@ -472,7 +472,7 @@
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>1127</ID>
+          <ID>4554</ID>
           <Description>"p1_movelist"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>String</VariableType>
@@ -480,13 +480,13 @@
           <Unicode>0</Unicode>
           <CodePage>0</CodePage>
           <ZeroTerminate>1</ZeroTerminate>
-          <Address>"TekkenGame-Win64-Shipping.exe"+034E8770</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+034EBCF0</Address>
           <Offsets>
             <Offset>2E8</Offset>
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>4448</ID>
+          <ID>4555</ID>
           <Description>"p2_movelist"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>String</VariableType>
@@ -494,7 +494,7 @@
           <Unicode>0</Unicode>
           <CodePage>0</CodePage>
           <ZeroTerminate>1</ZeroTerminate>
-          <Address>"TekkenGame-Win64-Shipping.exe"+034EBDE0</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+034EF360</Address>
           <Offsets>
             <Offset>2E8</Offset>
           </Offsets>
@@ -508,28 +508,29 @@
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>4521</ID>
-          <Description>"FrameCounter"</Description>
+          <ID>4582</ID>
+          <Description>"FrameCount"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TekkenGame-Win64-Shipping.exe"+34CA460</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+34CD78C</Address>
         </CheatEntry>
         <CheatEntry>
-          <ID>19</ID>
+          <ID>4568</ID>
           <Description>"Distance"</Description>
           <VariableType>Float</VariableType>
-          <Address>"TekkenGame-Win64-Shipping.exe"+34E79A0</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+34EAF20</Address>
         </CheatEntry>
         <CheatEntry>
-          <ID>17</ID>
+          <ID>4585</ID>
           <Description>"P1_MoveID"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TekkenGame-Win64-Shipping.exe"+34E75A0</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+34EAB20</Address>
         </CheatEntry>
         <CheatEntry>
-          <ID>18</ID>
+          <ID>4583</ID>
           <Description>"P2_MoveID"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TekkenGame-Win64-Shipping.exe"+34EAC10</Address>
+          <Address>"TekkenGame-Win64-Shipping.exe"+34EE190</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>4492</ID>
@@ -600,7 +601,7 @@
     </SymbolEntry>
     <SymbolEntry>
       <Name>player_data_pointer_offset</Name>
-      <Address>03500238</Address>
+      <Address>035037B8</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <Comments>How to update addresses after a patch: https://github.com/WAZAAAAA0/TekkenBot/wiki/How-to-update-addresses
