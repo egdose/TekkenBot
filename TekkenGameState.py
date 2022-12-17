@@ -1216,9 +1216,9 @@ class TekkenGameState:
     def GetBotCharId(self):
         # TODO: Has tendency to fetch for wrong player
         # Need some better way to verify if the char is the player or smth
-        # char_id = self.stateLog[-1].bot.char_id
+        char_id = self.stateLog[-1].bot.char_id
         
-        char_id = 22
+        # char_id = 22
         #if -1 < char_id < 50:
         print("Character: " + str(char_id))
         return char_id
