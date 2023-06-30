@@ -13,6 +13,7 @@ import time
 from enum import Enum
 import VersionChecker
 import webbrowser
+import sys
 
 class GUI_TekkenBotPrime(Tk):
     def __init__(self):
